@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="Part4_GameCSS.css">
+  </head>
+
+  <body>
+    <div class="container">
+
+
+  <div class="jumbotron">
+    <h1>Welcome to Tic Tac Toe!</h1>
+
+  <p><a id='b' class="btn btn-primary btn-lg" href="#" role="button">Restart!</a></p>
+</div>
+    <table align='center'>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+    </table>
+
+
+   <script type="text/javascript" src='Part4_Game.js'></script>
+   </div>
+  </body>
+
+</html>
+
+Javascript Code
+// Restart Game Button
+var restart = document.querySelector('#b');
+
+// Grab all the squares
+var squares = document.querySelectorAll("td");
+
+
+// Clear Squares Function
+function clearBoard() {
+  for (var i = 0; i < squares.length; i++) {
+      squares[i].textContent = '';
+  }
+
+}
+restart.addEventListener('click',clearBoard)
+
+
+
+
+// Function that will check the square marker
+function changeMarker(){
+    if(this.textContent === ''){
+      this.textContent = 'X';
+      // console.log(marker)
+    }else if (this.textContent === 'X') {
+      this.textContent = 'O';
+    }else {
+      this.textContent = '';
+    }
+};
+
+
+for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', changeMarker);
+}
+
+CSS code
+td{
+  height: 150px;
+  width: 150px;
+  text-align: center;
+  /*padding: 100px;*/
+  border: 5px solid black;
+  font-size: 100px
+}
